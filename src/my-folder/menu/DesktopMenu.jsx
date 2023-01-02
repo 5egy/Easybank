@@ -10,10 +10,10 @@ const contact = useRef();
 const about = useRef();
 const home = useRef();
 
-
   function scrollFunction(e) {
 
     if(e === blog.current){
+
       scrollToElement("blog")
     }
     if(e === about.current){
