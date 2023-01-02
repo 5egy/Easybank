@@ -1,34 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { createContext, useState } from "react";
+import Header from "./my-folder/header/Header";
+import Section from "./my-folder/sections/MainSection";
+import Footer from "./my-folder/footer/Footer";
+import MobileMenu from "./my-folder/menu/MobileMenu";
+import "./my-folder/style/App.scss";
+// import Bounce from "react-reveal/Zoom";  "react-reveal": "^1.2.2",
 
-function App() {
-  const [count, setCount] = useState(0)
+export const scrollElem = createContext();
+
+const App = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+  const [element, setElement] = useState("");
+
+  function scrollValue(elem) {
+    setElement( elem);
+
+    setTimeout(() => {
+      setElement("nothing");
+    }, 200);
+  }
+
+  function toggleMenu() {
+    setOpenMenu((curr) => {
+      return !curr;
+    });
+  }
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
+    <div id="container">
+      <scrollElem.Provider value={scrollValue}>
+        <Header openMenu={openMenu} toggleMenu={toggleMenu} element={element}/>
 
-export default App
+        <MobileMenu openMenu={openMenu} element={element} />
+      </scrollElem.Provider>
+      <Section element={element} />
+
+      {/* <Bounce> */}
+        <Footer element={element}/>
+      {/* </Bounce> */}
+
+    </div>
+  );
+};
+
+export default App;
