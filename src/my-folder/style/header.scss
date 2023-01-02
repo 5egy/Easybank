@@ -1,0 +1,136 @@
+@import "variables";
+header {
+  background-color: $VeryLightGray;
+  @include Responsive($Desktop) {
+    display: grid;
+    grid-template-columns: 1fr minmax(500px, 1fr);
+    grid-gap: 1em;
+    padding: 1em;
+    padding-left: 5em;
+    height: 100vh;
+    min-height: 670px;
+  }
+}
+
+#mobileNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+
+  @include flex($justify: space-between);
+  background-color: $VeryLightGray;
+  padding: 1.5em;
+
+  #logo {
+    display: block;
+    width: 8em;
+  }
+
+  #menu {
+    display: block;
+    width: 1.3em;
+    height: 1.2em;
+    cursor: pointer;
+  }
+
+  @include Responsive($Desktop) {
+    display: none;
+  }
+}
+
+#landing-image {
+  background-image: url("../easybank-landing-page-master/images/bg-intro-mobile.svg");
+  background-size: 100% 95%;
+  background-repeat: no-repeat;
+  background-position: 100% 250%;
+  position: relative;
+  z-index: 1;
+  transform: translateY(-20%);
+
+  #background-img {
+    display: inline-block;
+    width: 100%;
+  }
+
+  @include Responsive($Desktop) {
+    position: static;
+    background-image: url("../easybank-landing-page-master/images/bg-intro-desktop.svg");
+    background-size: cover;
+    background-position: -50% 100%;
+    padding-bottom: 3em;
+    overflow: hidden;
+    @include flex;
+
+  #background-img {
+    width: 70%;
+    // background-color: red;
+    // padding-left: 3em;
+    height: 100%;
+    margin: auto;
+    transform: translate(38%, 10%);
+  
+  
+}
+  }
+}
+
+#landing-message {
+  padding: 0.5em 1em;
+  margin-top: -20%;
+  text-align: center;
+  padding-bottom: 2em;
+
+  h1 {
+    text-align: center;
+    font-size: 2em;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+    color: $DarkBlue;
+  }
+
+  p {
+    font-size: 0.8em;
+    line-height: 1.3em;
+    padding-inline: 0.3em;
+    text-align: center;
+    margin-top: 1.5em;
+    color: $GrayishBlue;
+  }
+
+  #invite {
+    margin-top: 2em;
+    font-size: 1em;
+    padding: 0.9em 2em;
+    color: $White;
+    background: linear-gradient(to right, $LimeGreen, $BrightCyan);
+  }
+
+  @include Responsive($Tablets) {
+    margin-top: -30%;
+  }
+
+  @include Responsive($Desktop) {
+    padding: 0.5em 3em;
+    margin-top: -100%;
+    text-align: center;
+    padding-bottom: 2em;
+    flex-direction: column !important;
+    @include flex;
+
+    h1 {
+      font-size: 3.5em !important;
+      text-align: left;
+    }
+
+    p {
+      font-size: 1.3em !important;
+      text-align: left;
+    }
+
+    button {
+      margin-left: 0;
+    }
+  }
+}

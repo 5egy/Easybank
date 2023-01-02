@@ -1,0 +1,82 @@
+@import "variables";
+footer {
+  background-color: $DarkBlue;
+  padding: 2em 1em;
+  text-align: center;
+
+  button, svg{
+    transition: .5s;
+    color: $White;
+    background: transparent;
+    border: none;
+
+   &:hover{
+    color: $LimeGreen;
+   }
+  }
+
+  #img-div {
+
+    #logo {
+      display: block;
+      margin: auto;
+      filter: invert(100%);
+      margin-bottom: 2em;
+   
+    }
+  }
+
+  .socials {
+   
+    button {
+      display: inline-block;
+      margin: 0.3em;
+      background-color: transparent;
+      border: none;
+      color: $White;
+      font-size: 1em;
+    }
+  }
+
+  div {
+    ul {
+      li {
+        list-style: none;
+        margin: 1em 0;
+
+        a {
+          text-decoration: none;
+          color: $LightGrayishBlue;
+          font-size: 0.9em;
+        }
+      }
+    }
+
+    #invite {
+      margin: 2em 0;
+      font-size: 0.8em;
+      padding: 0.8em 1.8em;
+      color: $White;
+      cursor: pointer;
+      background: linear-gradient(to right, $LimeGreen, $BrightCyan);
+    }
+
+    p {
+      color: $GrayishBlue;
+      font-size: 0.8em;
+    }
+  }
+
+  @include Responsive($SmallLaptops){
+  display: flex;
+  align-content: center;
+  justify-content: space-evenly;
+  padding-block: 7em;
+  
+  #img-div{
+    display: flex;
+    flex-direction: column;
+    padding: .7em;
+  }
+  }
+}

@@ -1,0 +1,36 @@
+//Primary Colors
+
+$DarkBlue: hsl(233, 26%, 24%);
+$LimeGreen: hsl(136, 65%, 51%);
+$BrightCyan: hsl(192, 70%, 51%);
+
+//Neutral colors
+
+$GrayishBlue: hsl(233, 8%, 62%);
+$LightGrayishBlue: hsl(220, 16%, 96%);
+$VeryLightGray: hsl(0, 0%, 98%);
+$White: hsl(0, 0%, 100%);
+
+//Layouts
+
+$Mobile: 320px;
+$Tablets: 481px;
+$SmallLaptops: 769px;
+$Desktop: 1025px;
+$BiggerScreen: 1440px;
+
+
+//mixing and functions
+
+@mixin flex($direction: row, $justify: center, $align:center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-content: $align;
+}
+
+@mixin Responsive($w) {
+    @media screen and (min-width:$w ){
+      @content;
+    }
+  }
