@@ -4,7 +4,7 @@ import Section from "./my-folder/sections/MainSection";
 import Footer from "./my-folder/footer/Footer";
 import MobileMenu from "./my-folder/menu/MobileMenu";
 import "./my-folder/style/App.scss";
-// import Bounce from "react-reveal/Zoom";  "react-reveal": "^1.2."
+//import Bounce from "react-reveal/Zoom";  "react-reveal": "^1.2."
 
 export const scrollElem = createContext();
 
